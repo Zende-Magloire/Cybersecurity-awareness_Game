@@ -407,20 +407,18 @@ function getRandomQuestion() {
 function displayNextQuestion() {
   currentQuestionIndex++;
   const randomQuestion = getRandomQuestion();
-  document.getElementById("question").innerText = randomQuestion.question; // Display the question
+  document.getElementById("question").innerText = randomQuestion.question;
   const optionsContainer = document.getElementById("options");
   optionsContainer.innerHTML = "";
-  document.getElementById("feedback").innerText = ""; // Clear previous feedback message
+  document.getElementById("feedback").innerText = ""; 
   randomQuestion.options.forEach((option, index) => {
     const optionElement = document.createElement("button");
     optionElement.classList.add("btn", "btn-secondary", "mb-2", "d-block", "w-100");
     optionElement.innerText = option;
     optionElement.addEventListener("click", () => {
-      // Check the answer and provide feedback
       if (option === randomQuestion.answer) {
         optionElement.classList.add("bg-success");
         correctAnswers++;
-        // Move to the next question
         if (currentQuestionIndex < 9) {
           displayNextQuestion();
         } else {
@@ -443,8 +441,8 @@ function displayNextQuestion() {
 function showResult() {
   document.getElementById("question").innerHTML = "<div class='congrats-message'>Congratulations! You completed the quiz and answered all questions correctly. You have a great understanding of cybersecurity!</div>";
   document.getElementById("options").innerHTML = "";
-  document.getElementById("feedback").style.display = "none"; // Hide the feedback message
-  document.querySelector(".progress").style.display = "none"; // Hide the progress bar
+  document.getElementById("feedback").style.display = "none"; 
+  document.querySelector(".progress").style.display = "none"; 
 }
 
 displayNextQuestion();
