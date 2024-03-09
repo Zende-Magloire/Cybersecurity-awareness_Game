@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center; /* Center align all text */
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto; /* Center the container */
+    padding: 0 20px;
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+  }
+  
+  #question {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .options {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align the options */
+  }
+  
+  .option {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .option:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .btn {
+    margin-top: 20px;
+  }
+  
