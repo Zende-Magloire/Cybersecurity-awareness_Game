@@ -1,9 +1,11 @@
 Immerse yourself in the world of cybersecurity with our interactive game! 
 
-Explore a virtual library filled with flashcards on various cybersecurity topics. Click on a card to reveal valuable information and insights into the world of digital security.
+The Cybersecurity Quiz Game is an educational tool designed to teach students about cybersecurity in a fun and engaging way. The game is tailored for users of different age groups, including middle, elementary, and high school students, offering a unique experience for each level.
 
-Test your knowledge by taking quizzes on the topics you've learned about and challenge yourself to improve your understanding of cybersecurity concepts.
+For middle school students, the game features interactive tabs that provide information on various cybersecurity topics, such as passwords, social engineering, malware, phishing, and online privacy. Students can click on the tab to learn more about each topic. The game also includes a quiz section where students can test their knowledge by answering questions from different topics.
 
-Learn about important cybersecurity topics such as phishing awareness, password security, data protection, social engineering, mobile device security, software updates, two-factor authentication (2FA), secure web browsing, data backup, and incident response.
+For elementary school students, the game offers simplified content and easier quiz questions to match their level of understanding.
 
-Whether you're a seasoned cybersecurity professional looking to brush up on your skills or a newcomer eager to learn, our game provides a fun and engaging way to expand your knowledge and enhance your cybersecurity expertise.
+For high school students, the game provides more in-depth content and challenging quiz questions to stimulate critical thinking and deeper learning.
+
+Overall, the Cybersecurity Quiz Game aims to educate and engage students in a fun and interactive way, helping them develop essential cybersecurity skills and knowledge.
