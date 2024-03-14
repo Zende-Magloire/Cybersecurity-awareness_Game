@@ -1,0 +1,64 @@
+/* Add styling for memory card game */
+.memory-card {
+    perspective: 1000px;
+}
+
+.card {
+    width: 100%;
+    height: 120px; /* Adjusted height */
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.card-front {
+    background-color: #f8f9fa; /* Light gray */
+}
+
+.card-back {
+    background-color: #dc3545; /* Red */
+    transform: rotateY(180deg);
+}
+
+.flip {
+    transform: rotateY(180deg);
+}
+
+/* Define unique colors for each pair */
+[data-framework="password"] .card-back { background-color: #007bff; } /* Blue */
+[data-framework="cyberbullying"] .card-back { background-color: #17a2b8; } /* Cyan */
+[data-framework="phishing"] .card-back { background-color: #28a745; } /* Green */
+[data-framework="virus"] .card-back { background-color: #ffc107; } /* Yellow */
+[data-framework="malware"] .card-back { background-color: #6610f2; } /* Purple */
+[data-framework="antivirus"] .card-back { background-color: #fd7e14; } /* Orange */
+[data-framework="firewall"] .card-back { background-color: #20c997; } /* Teal */
+[data-framework="encryption"] .card-back { background-color: #6f42c1; } /* Indigo */
+
+.congrats-message {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+.reset-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.reset-button:hover {
+    background-color: #0056b3;
+}
