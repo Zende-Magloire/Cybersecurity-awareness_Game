@@ -393,6 +393,29 @@ const questions = {
 
 let currentQuestionIndex = -1;
 let correctAnswers = 0;
+let timerInterval;
+let time = 0;
+
+function startTimer() {
+  timerInterval = setInterval(() => {
+    time++;
+    document.getElementById("time").innerText = time;
+  }, 1000);
+}
+
+function stopTimer() {
+  clearInterval(timerInterval);
+}
+
+document.getElementById("restartButton").addEventListener("click", () => {
+  currentQuestionIndex = -1;
+  correctAnswers = 0;
+  time = 0;
+  stopTimer();
+  document.getElementById("time").innerText = "0";
+  displayNextQuestion();
+});
+
 
 function getRandomQuestion() {
   let topicKeys = Object.keys(questions);
@@ -406,6 +429,10 @@ function getRandomQuestion() {
 
 function displayNextQuestion() {
   currentQuestionIndex++;
+  if (currentQuestionIndex === 0) {
+    time = 0;
+    startTimer();
+  }
   const randomQuestion = getRandomQuestion();
   document.getElementById("question").innerText = randomQuestion.question;
   const optionsContainer = document.getElementById("options");
@@ -431,18 +458,28 @@ function displayNextQuestion() {
     });
     optionsContainer.appendChild(optionElement);
   });
-
-  // Update progress bar
-  const progressBar = document.getElementById("progressBar");
-  const progress = ((currentQuestionIndex + 1) / 10) * 100;
-  progressBar.style.width = `${progress}%`;
 }
 
 function showResult() {
-  document.getElementById("question").innerHTML = "<div class='congrats-message'>Congratulations! You completed the quiz and answered all questions correctly. You have a great understanding of cybersecurity!</div>";
+  stopTimer();
+  document.getElementById("question").innerHTML = `<div class='congrats-message'>Congratulations! You completed the quiz and answered ${correctAnswers} questions correctly. Your time: ${time} seconds. Can you beat it?</div>`;
   document.getElementById("options").innerHTML = "";
-  document.getElementById("feedback").style.display = "none"; 
-  document.querySelector(".progress").style.display = "none"; 
+  document.getElementById("feedback").style.display = "none";
+  document.getElementById("restartButton").innerText = "Restart/Replay and Beat Your Time";
+  document.getElementById("restartButton").classList.add("btn", "btn-success");
+  document.getElementById("restartButton").removeEventListener("click", displayNextQuestion);
+  document.getElementById("restartButton").addEventListener("click", () => {
+    currentQuestionIndex = -1;
+    correctAnswers = 0;
+    time = 0;
+    stopTimer();
+    startTimer();
+    document.getElementById("time").innerText = time;
+    displayNextQuestion();
+    document.getElementById("restartButton").innerText = "Restart/Replay";
+    document.getElementById("restartButton").classList.remove("btn-success");
+  });
 }
+
 
 displayNextQuestion();
