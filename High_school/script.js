@@ -141,29 +141,31 @@ function displayChallenge(challenge) {
 }
 
 function checkAnswer(selectedChoice) {
-  const challenge = challenges[currentChallengeIndex];
-  if (selectedChoice === challenge.correctChoice) {
-    score++;
-    document.getElementById('result').innerText = "Correct! Your score is: " + score;
-  } else {
-    document.getElementById('result').innerText = "Incorrect. Your score is: " + score;
+    const challenge = challenges[currentChallengeIndex];
+    if (selectedChoice === challenge.correctChoice) {
+      score++;
+      document.getElementById('result').innerText = "Correct! Your score is: " + score;
+    } else {
+      document.getElementById('result').innerText = "Incorrect. Your score is: " + score;
+    }
+  
+    totalQuestions--;
+    if (totalQuestions === 0) {
+      document.getElementById('game-over').innerText = "Game Over! Final Score: " + score;
+      document.getElementById('replay-btn').style.display = 'block';
+    } else {
+      const nextChallenge = getRandomChallenge();
+      displayChallenge(nextChallenge);
+    }
   }
-
-  totalQuestions--;
-  if (totalQuestions > 0) {
-    const nextChallenge = getRandomChallenge();
-    displayChallenge(nextChallenge);
-  } else {
-    document.getElementById('game-over').innerText = "Game Over! Final Score: " + score;
-    document.getElementById('replay-btn').style.display = 'block';
-  }
-}
-
-document.querySelector('form').addEventListener('submit', function(event) {
-  event.preventDefault();
-  const selectedChoice = parseInt(document.getElementById('choices').value);
-  checkAnswer(selectedChoice);
-});
+   
+  
+  document.querySelector('form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
+    const selectedChoice = parseInt(document.getElementById('choices').value);
+    checkAnswer(selectedChoice);
+  });
+  
 
 document.getElementById('replay-btn').addEventListener('click', function() {
   totalQuestions = 10;
