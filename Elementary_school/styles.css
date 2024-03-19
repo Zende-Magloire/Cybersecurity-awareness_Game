@@ -1,11 +1,10 @@
-/* Add styling for memory card game */
 .memory-card {
     perspective: 1000px;
 }
 
 .card {
     width: 100%;
-    height: 120px; /* Adjusted height */
+    height: 120px; 
     position: relative;
     transform-style: preserve-3d;
     transition: transform 0.5s;
