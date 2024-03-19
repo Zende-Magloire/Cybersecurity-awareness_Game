@@ -56,13 +56,18 @@ button:hover {
 <body>
 <div class="container">
   <h1>Welcome to the Cybersecurity Game!</h1>
-  <p>Please select your level:</p>
+  <p>Select your level to start:</p>
   <select id="levelSelect">
+    <option value="" selected disabled>Select a level</option>
     <option value="elementary">Elementary School</option>
     <option value="middle">Middle School</option>
     <option value="high">High School</option>
   </select>
   <button onclick="startGame()">Start Game</button>
+  <p>Test your cybersecurity knowledge and learn about staying safe online!</p>
+  <footer>
+    <p>&copy; 2024 Cybersecurity Game. All Rights Reserved.</p>
+  </footer>
 </div>
 
 <script>
