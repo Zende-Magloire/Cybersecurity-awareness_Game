@@ -398,6 +398,5 @@ document.getElementById('replay-btn').addEventListener('click', function() {
   displayChallenge(firstChallenge);
 });
 
-// Start the game
 const firstChallenge = getRandomChallenge();
 displayChallenge(firstChallenge);

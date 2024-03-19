@@ -61,7 +61,6 @@ $(document).ready(function() {
 
   function showCongratsMessage() {
     $('.container').append('<div class="congrats-message animate__animated animate__bounceIn">Great job, cybersecurity expert!</div>');
-    $('.container').append('<button class="reset-button">Play Again</button>');
     $('.reset-button').on('click', function() {
       resetGame();
     });
