@@ -1,6 +1,6 @@
 Elementary School Level:
 Game Idea: Create a simple matching game where students match cybersecurity terms with their definitions.
-Topics: Basic cybersecurity concepts such as passwords, personal information protection, and online safety.
+Topics: Basic cybersecurity concepts such as passwords, antivirus and firewalls.
 Content: Simple explanations with colorful illustrations and easy-to-understand language.
 This memory game sets up a memory card game where each card has a front and back face. When a card is clicked, 
 it flips over to reveal its back face, which contains a term and its meaning. If two flipped cards match, they 
