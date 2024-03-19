@@ -333,9 +333,10 @@ const challenges = [
       }      
 ];
   
-  let currentChallengeIndex = -1;
+let currentChallengeIndex = -1;
 let score = 0;
 let totalQuestions = 10;
+let highScore = 0;
 
 function getRandomChallenge() {
   let randomIndex;
@@ -360,49 +361,43 @@ function displayChallenge(challenge) {
 }
 
 function checkAnswer(selectedChoice) {
-    const challenge = challenges[currentChallengeIndex];
-    if (selectedChoice === challenge.correctChoice) {
-      score++;
-      document.getElementById('result').innerText = "Correct! Your score is: " + score;
-    } else {
-      document.getElementById('result').innerText = "Incorrect. Your score is: " + score;
-    }
-  
-    totalQuestions--;
-    if (totalQuestions === 0) {
-      document.getElementById('game-over').innerText = "Game Over! Final Score: " + score;
-      document.getElementById('replay-btn').style.display = 'block';
-    } else {
-      const nextChallenge = getRandomChallenge();
-      displayChallenge(nextChallenge);
-    }
+  const challenge = challenges[currentChallengeIndex];
+  if (selectedChoice === challenge.correctChoice) {
+    score++;
+    document.getElementById('result').innerText = "Correct! Your score is: " + score;
+  } else {
+    document.getElementById('result').innerText = "Incorrect. Your score is: " + score;
   }
-   
-  
-  document.querySelector('form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent form submission
-    const selectedChoice = parseInt(document.getElementById('choices').value);
-    checkAnswer(selectedChoice);
-  });
-  
+
+  totalQuestions--;
+  if (totalQuestions > 0) {
+    const nextChallenge = getRandomChallenge();
+    displayChallenge(nextChallenge);
+  } else {
+    document.getElementById('game-over').innerText = "Game Over! Final Score: " + score;
+    if (score > highScore) {
+      highScore = score;
+      document.getElementById('high-score').innerText = "High Score: " + highScore;
+    }
+    document.getElementById('replay-btn').style.display = 'block';
+  }
+}
+
+document.querySelector('form').addEventListener('submit', function(event) {
+  event.preventDefault();
+  const selectedChoice = parseInt(document.getElementById('choices').value);
+  checkAnswer(selectedChoice);
+});
 
 document.getElementById('replay-btn').addEventListener('click', function() {
   totalQuestions = 10;
   score = 0;
-  document.getElementById('game-over').innerText = "";
+  document.getElementById('game-over').innerText = "High Score: " + highScore;
   document.getElementById('replay-btn').style.display = 'none';
   const firstChallenge = getRandomChallenge();
   displayChallenge(firstChallenge);
 });
 
-function getRandomChallenge() {
-    let randomIndex;
-    do {
-      randomIndex = Math.floor(Math.random() * challenges.length);
-    } while (randomIndex === currentChallengeIndex);
-    currentChallengeIndex = randomIndex;
-    return challenges[randomIndex];
-  }
-  
+// Start the game
 const firstChallenge = getRandomChallenge();
 displayChallenge(firstChallenge);
