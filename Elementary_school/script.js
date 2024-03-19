@@ -4,7 +4,7 @@ $(document).ready(function() {
   let firstCard, secondCard;
   let pairsMatched = 0;
 
-  $('.memory-card').on('click', function() {
+  $(document).on('click', '.memory-card', function() {
     if (lockBoard) return;
     if (this === firstCard) return;
 
@@ -22,7 +22,7 @@ $(document).ready(function() {
   });
 
   function checkForMatch() {
-    let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
+    let isMatch = $(firstCard).data('framework') === $(secondCard).data('framework');
 
     if (isMatch) {
       disableCards();
@@ -61,18 +61,18 @@ $(document).ready(function() {
 
   function showCongratsMessage() {
     $('.container').append('<div class="congrats-message animate__animated animate__bounceIn">Great job, cybersecurity expert!</div>');
+    $('.container').append('<button class="reset-button">Play Again</button>');
     $('.reset-button').on('click', function() {
       resetGame();
     });
   }
-  
+
   function resetGame() {
     pairsMatched = 0;
-    $('.memory-card').each(function() {
-      $(this).removeClass('flip');
+    $('.memory-card').removeClass('flip').each(function() {
       $(this).on('click');
     });
     $('.congrats-message').remove();
     $('.reset-button').remove();
-  }  
+  }
 });
